@@ -150,7 +150,7 @@ def start(update, context):
                 [
                 [InlineKeyboardButton(text="💭 Language", callback_data="main_setlang"), InlineKeyboardButton(text="⚙️ Connect Group", callback_data="main_connect")],
                 [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/Infinityje"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/Infinity_Bots")],
-                [InlineKeyboardButton(text="❓ Help", url="https://t.me/{}?start=help".format(context.bot.username)), InlineKeyboardButton(text="💖 Source Code ", url="https://github.com/Inukaaith/daisy")],
+                [InlineKeyboardButton(text="❓ Help", url="https://t.me/{}?start=help".format(context.bot.username)), InlineKeyboardButton(text="💖 Source Code", url="https://github.com/Inukaaith/daisy")],
                 [InlineKeyboardButton(text="🎉 Add me to your group", url="https://t.me/{}?startgroup=new".format(context.bot.username))]])
             update.effective_message.reply_photo(DAISY_IMG,
                 tl(update.effective_message, PM_START_TEXT).format(escape_markdown(first_name), escape_markdown(context.bot.first_name), OWNER_ID),

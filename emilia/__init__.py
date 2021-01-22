@@ -1,30 +1,37 @@
 import logging
+import time
 import os
 import sys
-import time
-from datetime import datetime
-from functools import wraps
+import spamwatch
 from telethon import TelegramClient
 import telegram.ext as tg
 
 # enable logging
 logging.basicConfig(
-	format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-	level=logging.INFO)
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("emilia-log.txt"),
+        logging.StreamHandler(),
+    ],
+    level=logging.INFO,
+)
 
 LOGGER = logging.getLogger(__name__)
 
-# if version < 3.6, stop bot.
-if sys.version_info[0] < 3 or sys.version_info[1] < 6:
-	LOGGER.error("You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting.")
-	quit(1)
+LOGGER.info("Starting Elizabeth...")
+
+# if version < 3.8, stop bot.
+if sys.version_info[0] < 3 or sys.version_info[1] < 8:
+    LOGGER.error(
+        "You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting."
+    )
+    sys.exit(1)
 
 # Check if system is reboot or not
 try:
-	os.remove("reboot")
-except:
-	pass
-
+    os.remove("reboot")
+except BaseException:
+    pass
 ENV = bool(os.environ.get('ENV', False))
 
 if ENV:

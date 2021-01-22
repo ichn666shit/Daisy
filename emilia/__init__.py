@@ -2,28 +2,30 @@ import logging
 import os
 import sys
 import time
-from datetime import datetime
-from functools import wraps
-from telethon import TelegramClient
+import spamwatch
+
+from pyrogram import Client, errors
+
 import telegram.ext as tg
+from telethon import TelegramClient
+
+StartTime = time.time()
 
 # enable logging
 logging.basicConfig(
-	format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-	level=logging.INFO)
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.FileHandler('log.txt'),
+              logging.StreamHandler()],
+    level=logging.INFO)
 
 LOGGER = logging.getLogger(__name__)
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
-	LOGGER.error("You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting.")
-	quit(1)
-
-# Check if system is reboot or not
-try:
-	os.remove("reboot")
-except:
-	pass
+    LOGGER.error(
+        "You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting."
+    )
+    quit(1)
 
 ENV = bool(os.environ.get('ENV', False))
 
@@ -182,10 +184,7 @@ DEMONS = SUDO_USERS
 TIGERS = SUDO_USERS
 WOLVES = SUDO_USERS
 # Load at end to ensure all prev variables have been set
-from emilia.modules.helper_funcs.handlers import CustomCommandHandler
 
-if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
-	tg.CommandHandler = CustomCommandHandler
 
 try:
 	from emilia.antispam import antispam_restrict_user, antispam_cek_user, detect_user
@@ -226,4 +225,11 @@ def spamcheck(func):
 		return func(update, context, *args, **kwargs)
 
 	return check_user
+from emilia.modules.helper_funcs.handlers import (CustomCommandHandler,
+                                                        CustomMessageHandler,
+                                                        CustomRegexHandler)
 
+# make sure the regex handler can take extra kwargs
+tg.RegexHandler = CustomRegexHandler
+tg.CommandHandler = CustomCommandHandler
+tg.MessageHandler = CustomMessageHandler

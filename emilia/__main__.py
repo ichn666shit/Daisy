@@ -11,7 +11,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryH
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
-from Elizabeth import (
+from emilia import (
     dispatcher,
     DEV_USERS,
     SUDO_USERS,
@@ -30,12 +30,12 @@ from Elizabeth import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from Elizabeth.modules import ALL_MODULES
-from Elizabeth.modules.purge import client
-from Elizabeth.modules.helper_funcs.chat_status import is_user_admin
-from Elizabeth.modules.helper_funcs.filters import CustomFilters
-from Elizabeth.modules.helper_funcs.misc import paginate_modules
-from Elizabeth.modules.helper_funcs.alternate import typing_action
+from emilia.modules import ALL_MODULES
+from emilia.modules.purge import client
+from emilia.modules.helper_funcs.chat_status import is_user_admin
+from emilia.modules.helper_funcs.filters import CustomFilters
+from emilia.modules.helper_funcs.misc import paginate_modules
+from emilia.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""

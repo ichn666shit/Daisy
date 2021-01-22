@@ -103,7 +103,7 @@ def test(update, context):
 
 @run_async
 @spamcheck
-def start(update, context):
+def start(update: Update, context: CallbackContext):
     if update.effective_chat.type == "private":
         args = context.args
         if len(args) >= 1:

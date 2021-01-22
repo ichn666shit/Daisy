@@ -226,11 +226,4 @@ def spamcheck(func):
 		return func(update, context, *args, **kwargs)
 
 	return check_user
-from emilia.modules.helper_funcs.handlers import (CustomCommandHandler,
-                                                        CustomMessageHandler,
-                                                        CustomRegexHandler)
 
-# make sure the regex handler can take extra kwargs
-tg.RegexHandler = CustomRegexHandler
-tg.CommandHandler = CustomCommandHandler
-tg.MessageHandler = CustomMessageHandler

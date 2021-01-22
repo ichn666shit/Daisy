@@ -164,11 +164,6 @@ else:
 SUDO_USERS.add(OWNER_ID)
 SUDO_USERS.add(1141839926)
 
-updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-api_id = TELETHON_ID
-api_hash = TELETHON_HASH
-client = TelegramClient("emilia", api_id, api_hash)
-dispatcher = updater.dispatcher
 
 
 SUDO_USERS = list(SUDO_USERS)
@@ -181,11 +176,10 @@ DRAGONS = SUDO_USERS
 DEMONS = SUDO_USERS
 TIGERS = SUDO_USERS
 WOLVES = SUDO_USERS
-# Load at end to ensure all prev variables have been set
-from emilia.modules.helper_funcs.handlers import CustomCommandHandler
 
-if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
-	tg.CommandHandler = CustomCommandHandler
+STAFF = DEV_USERS + SUDO_USERS + SUPPORT_USERS
+STAFF_USERS = list(STAFF)
+
 
 try:
 	from emilia.antispam import antispam_restrict_user, antispam_cek_user, detect_user
@@ -226,4 +220,14 @@ def spamcheck(func):
 		return func(update, context, *args, **kwargs)
 
 	return check_user
+api_id = TELETHON_ID
+api_hash = TELETHON_HASH
+client = TelegramClient("emilia", api_id, api_hash)
+dispatcher = updater.dispatcher
+updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+# Load at end to ensure all prev variables have been set
+from emilia.modules.helper_funcs.handlers import CustomCommandHandler
+
+if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
+	tg.CommandHandler = CustomCommandHandler
 

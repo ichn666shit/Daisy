@@ -102,6 +102,7 @@ def test(update, context):
 
 
 @run_async
+@spamcheck
 def start(update, context):
     if update.effective_chat.type == "private":
         args = context.args
@@ -148,8 +149,8 @@ def start(update, context):
             buttons = InlineKeyboardMarkup(
                 [
                 [InlineKeyboardButton(text="💭 Language", callback_data="main_setlang"), InlineKeyboardButton(text="⚙️ Connect Group", callback_data="main_connect")],
-                [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/Infinityje"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/Infinity_Bots")],
-                [InlineKeyboardButton(text="❓ Help", url="https://t.me/{}?start=help".format(context.bot.username)), InlineKeyboardButton(text="💖 Source Code", url="https://github.com/Inukaaith/daisy")],
+                [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/Infinityje"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/infje")],
+                [InlineKeyboardButton(text="❓ Help", url="https://t.me/{}?start=help".format(context.bot.username)), InlineKeyboardButton(text="💖 About Developer", url="https://visi.tk/inukaasith")],
                 [InlineKeyboardButton(text="🎉 Add me to your group", url="https://t.me/{}?startgroup=new".format(context.bot.username))]])
             update.effective_message.reply_photo(DAISY_IMG,
                 tl(update.effective_message, PM_START_TEXT).format(escape_markdown(first_name), escape_markdown(context.bot.first_name), OWNER_ID),

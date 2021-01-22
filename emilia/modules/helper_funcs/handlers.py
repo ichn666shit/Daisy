@@ -1,4 +1,4 @@
-import emilia.modules.sql.blacklistusers_sql as sql
+import emilia.modules.sql.blacklist_sql as sql
 from emilia import ALLOW_EXCL
 from emilia import (DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES)
 

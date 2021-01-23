@@ -1,5 +1,5 @@
 from telethon import events
-from emilia import client
+from emilia import telethn
 
 
 def register(**args):

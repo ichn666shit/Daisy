@@ -191,8 +191,13 @@ try:
 	antispam_module = True
 except ModuleNotFoundError:
 	antispam_module = False
+dispatcher = updater.dispatcher
 
+updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+telethn = TelegramClient("emilia", API_ID, API_HASH)
+pbot = Client("emilia", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
+client=telethn
 def spamcheck(func):
 	@wraps(func)
 	def check_user(update, context, *args, **kwargs):
@@ -228,11 +233,6 @@ def spamcheck(func):
 
 
 
-updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("emilia", API_ID, API_HASH)
-pbot = Client("emilia", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
-dispatcher = updater.dispatcher
-client=telethn
 from emilia.modules.helper_funcs.handlers import (CustomCommandHandler,
                                                         CustomMessageHandler,
                                                         CustomRegexHandler)

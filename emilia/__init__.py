@@ -195,8 +195,8 @@ try:
 except ModuleNotFoundError:
 	antispam_module = False
 
-telethn = TelegramClient("emilia", TELETHON_ID, TELETHON_HASH)
-pbot = Client("emilia", api_id=TELETHON_ID, api_hash=TELETHON_HASH, bot_token=TOKEN)
+telethn = TelegramClient("saitama", TELETHON_ID, TELETHON_HASH)
+pbot = Client("senkuPyro", api_id=TELETHON_ID, api_hash=TELETHON_HASH, bot_token=TOKEN)
 client=telethn
 
 def spamcheck(func):

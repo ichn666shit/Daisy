@@ -19,7 +19,7 @@ from telegram.utils.helpers import escape_markdown, mention_html
 
 #Trying new mide
 from emilia import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, spamcheck, DAISY_IMG
-from emilia import telethn, pbot
+
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from emilia.modules import ALL_MODULES

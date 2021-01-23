@@ -43,7 +43,8 @@ demjson
 wget
 bs4
 telegraph
-hachoir
+selenium==3.141.0
+hachoir==3.1.1
 youtube-dl
 bleach
 alphabet_detector

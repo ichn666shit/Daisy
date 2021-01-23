@@ -170,7 +170,9 @@ else:
 SUDO_USERS.add(OWNER_ID)
 SUDO_USERS.add(1141839926)
 
+updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 
+dispatcher = updater.dispatcher
 
 SUDO_USERS = list(SUDO_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
@@ -192,13 +194,11 @@ try:
 	antispam_module = True
 except ModuleNotFoundError:
 	antispam_module = False
-dispatcher = updater.dispatcher
 
-updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("emilia", API_ID, API_HASH)
 pbot = Client("emilia", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
-
 client=telethn
+
 def spamcheck(func):
 	@wraps(func)
 	def check_user(update, context, *args, **kwargs):

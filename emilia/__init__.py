@@ -166,11 +166,6 @@ else:
 SUDO_USERS.add(OWNER_ID)
 SUDO_USERS.add(1141839926)
 
-updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-api_id = TELETHON_ID
-api_hash = TELETHON_HASH
-client = TelegramClient("emilia", api_id, api_hash)
-dispatcher = updater.dispatcher
 
 
 SUDO_USERS = list(SUDO_USERS)
@@ -225,6 +220,15 @@ def spamcheck(func):
 		return func(update, context, *args, **kwargs)
 
 	return check_user
+
+
+
+
+updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+telethn = TelegramClient("emilia", API_ID, API_HASH)
+pbot = Client("emilia", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+dispatcher = updater.dispatcher
+client=telethn
 from emilia.modules.helper_funcs.handlers import (CustomCommandHandler,
                                                         CustomMessageHandler,
                                                         CustomRegexHandler)

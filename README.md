@@ -1,12 +1,14 @@
 # The Daisy Robot
 
+# The new bot is here [@LizaSnow_Bot](https://t.me/LizaSnow_Bot)
+
 ### A Modular Group management Bot on Sinhala
 
 <p align = center>
 <img src="https://telegra.ph/file/d0c0156487ee42d9685e9.jpg" width =400 Height=400 ></img>
 </p>
 
-## Available on Telegram as [@TheDaisyRobot](t.me/thedaisyrobot) and [@MissLexaRobot](t.me/misslexarobot)
+## Available on Telegram as [@MissLexaRobot](t.me/misslexarobot)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/InukaAsith/Daisy.git)
 

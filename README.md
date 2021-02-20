@@ -1,6 +1,6 @@
 # The Daisy Robot
 
-# The new bot is here [@LizaSnow_Bot](https://t.me/LizaSnow_Bot)
+# The new bot is here [@DaisyXbot](https://t.me/daisyxbot)
 
 ### A Modular Group management Bot on Sinhala
 
